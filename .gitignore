@@ -3,6 +3,12 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Vim
+*.swp
+
+# Django
+*.sqlite3
+
 # C extensions
 *.so
 
