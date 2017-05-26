@@ -1,0 +1,38 @@
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and Javascript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+<div class="jumbotron text-center">
+    <h1>Welcome to AWANA at Ashland!</h1>
+    <p>Please sign in below or register if you haven't yet.</p>
+</div>
+
+{# Display a form #}
+<div class="container">
+<form action="/signin/" method="post" class="form">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1"
+            aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">We'll never
+                share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control"
+                            id="exampleInputPassword1" placeholder="Password">
+    </div>
+    {% buttons %}
+    <button type="submit" class="btn btn-primary">
+        {% bootstrap_icon "ok" %} Submit
+    </button>
+    {% endbuttons %}
+</form>
+</div>
