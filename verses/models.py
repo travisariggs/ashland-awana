@@ -1,10 +1,11 @@
 from django.db import models
 
+
 class Student(models.Model):
     """Model for Awana Students"""
 
     MALE = 'M'
-    FEMALE= 'F'
+    FEMALE = 'F'
     GENDER_CHOICES = (
         (MALE, 'Male'),
         (FEMALE, 'Female'),
@@ -33,14 +34,14 @@ class Verse(models.Model):
     """Model for Awana memory verses"""
 
     AWANA_BOOK_CHOICES = (
-        ('HON', 'HONEYCOMB'),
-        ('APP', 'APPLESEED')
+        ('C-HON', 'Cubbies Honeycomb'),
+        ('C-APP', 'Cubbies Appleseed')
     )
 
     text = models.TextField()
     bible_book = models.CharField(max_length=30, blank=True)
-    bible_chapter = models.IntegerField(blank=True)
-    bible_verse = models.IntegerField(blank=True)
+    bible_chapter = models.IntegerField(null=True, blank=True)
+    bible_verse = models.IntegerField(null=True, blank=True)
     awana_book = models.CharField(max_length=5, choices=AWANA_BOOK_CHOICES)
     awana_verse = models.IntegerField()
 
